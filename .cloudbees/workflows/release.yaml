@@ -8,9 +8,7 @@ on:
       manifest:
         type: string
         required: true
-      environment:
-        type: string
-        required: true
+      
 
 jobs:
   app1:
@@ -18,4 +16,4 @@ jobs:
     uses: cbp-test-QA-automation/qa-python-helloworld/.cloudbees/workflows/deploy.yaml
     with:
       manifest: ${{ toJSON(fromJSON(inputs.manifest)['qa-python-helloworld']) }}
-      environment: ${{ inputs.environment }}
+      environment: QA
