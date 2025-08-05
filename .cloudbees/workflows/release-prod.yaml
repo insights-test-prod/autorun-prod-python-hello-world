@@ -12,8 +12,8 @@ on:
 
 jobs:
   app1:
-    if: ${{ fromJSON(inputs.manifest)['qa-python-helloworld'].deploy }}
+    if: ${{ fromJSON(inputs.manifest)['qa-python-hello-world'].deploy }}
     uses: cbp-test-QA-automation/qa-python-helloworld/.cloudbees/workflows/deploy.yaml
     with:
-      manifest: ${{ toJSON(fromJSON(inputs.manifest)['qa-python-helloworld']) }}
+      manifest: ${{ toJSON(fromJSON(inputs.manifest)['qa-python-hello-world']) }}
       environment: PROD
