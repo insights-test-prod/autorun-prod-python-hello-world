@@ -13,12 +13,12 @@ on:
           for the expected format
 metadata:
   stages/v1alpha1:
-    - name: PROD
-      jobs:
-        - PROD
     - name: QA
       jobs:
         - QA
+    - name: PROD
+      jobs:
+        - PROD
 jobs:
   PROD:
     environment: PROD
@@ -26,9 +26,8 @@ jobs:
     with:
       manifest: ${{ inputs.manifest }}
       environment: ${{ job.environment }}
+    needs: QA
   QA:
-    needs:
-      - PROD
     environment: QA
     uses: ./.cloudbees/workflows/deployer.yaml
     with:
