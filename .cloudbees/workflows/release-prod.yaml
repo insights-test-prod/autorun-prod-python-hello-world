@@ -15,5 +15,5 @@ jobs:
     if: ${{ fromJSON(inputs.manifest)['prod-python-hello-world'].deploy }}
     uses: cbp-test-prod/prod-python-hello-world/.cloudbees/workflows/deploy.yaml
     with:
-      manifest: ${{ toJSON(fromJSON(inputs.manifest)['prod-python-hello-world']) }}
+      artifact-id: ${{ fromJSON(inputs.manifest)['prod-python-hello-world']['cbpautomation/python-hello-world-docker'].id }}
       environment: PROD
