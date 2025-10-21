@@ -14,10 +14,10 @@ metadata:
 jobs:
   Prod:
     environment: Prod
-    uses: ./.cloudbees/workflows/deployer.yaml
-    with:
-      manifest: ${{ inputs.manifest }}
-      environment: ${{ job.environment }}
+    steps:
+      - run: echo "PROD"
+        uses: docker://golang:1.20.3-alpine3.17
+        name: Deploy
   job:
     needs:
       - Prod
