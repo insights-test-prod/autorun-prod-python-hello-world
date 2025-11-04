@@ -15,9 +15,9 @@ metadata:
   stages/v1alpha1:
     - name: PROD
       jobs:
-        - env-approval
+        - Deploy-PROD
 jobs:
-  env-approval:
+  Deploy-PROD:
     environment: approval_PROD
     steps:
       - run: echo "Deploying to ${{ job.environment }}"
